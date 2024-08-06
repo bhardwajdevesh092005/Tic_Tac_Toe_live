@@ -1,19 +1,15 @@
 import './App.css'
-import { useSelector } from 'react-redux'
-import Btn from './components/Buttons/Btn';
-import LogoutBtn from './components/Buttons/LogoutBtn';
-
+import {useState} from 'react'
+import Btn from './components/Buttons/Btn'
 function App() {
-    const state = useSelector((state) => state);
+    const [name,setName] = useState("");
     return (
         <div className='w-full h-full flex flex-col justify-center align-middle text-white'>
-            {
-                (state.status&&<div className='self-center mb-12 text-6xl font-extrabold'>Hello, Devesh!!</div>)
-            }
             <div className='w-screen flex justify-center'>
             <img src="/Logo.png" alt="" className='w-1/2 self-center rounded-xl shadow-xl shadow-gray-700 mx-4' />
-            <div className='self-center ml-12'>
-                {state.status ? <div className='flex flex-col w-fit gap-4'><Btn name="Play" navigate='play' className='py-1' /> <LogoutBtn /></div> : <div className='flex flex-col gap-4'><Btn name={'signup'} className='py-1' navigate='signup' /> <Btn name={"login"} className='py-1' navigate='login' /></div>}
+            <div className='w-fit self-center mx-10 space-y-3 justify-center align-middle'>
+            <input type="text" name="" id="name" placeHolder="Your Name" onChange = {(e)=>{setName(e.target.value)}} className="text-2xl w-[300px] flex flex-col rounded-xl py-1 justify-center text-black border-4 border-violet-500"/>
+            <Btn name = {"Play"} className={'py-1 w-fit'} username={name}/>
             </div>
             </div>
         </div>

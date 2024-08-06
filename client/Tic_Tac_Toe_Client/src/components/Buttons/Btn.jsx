@@ -1,10 +1,10 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-function Btn({name,className="",navigate = ""}) {
-    const navigator = useNavigate();
+function Btn({name,className="",username=""}){
     return (
-        <div className={`w-fit bg-gradient-to-r from-blue-500 to-purple-500 flex justify-center text-xl px-1 rounded-full ${className}`}>
-            <button onClick={() => {navigator(`/${navigate}`)}} className='border-4 border-black py-1 px-16 rounded-full'>{name?.toUpperCase()}</button>
+        <div className='w-ful self-center flex justify-center'>
+        <div className={`w-fit bg-gradient-to-r from-blue-500 to-purple-500 flex justify-center self-center text-xl px-1 rounded-full ${className}`}>
+            <button  className='border-4 w-fit border-black py-1 px-16 rounded-full hover:border-white'><a href={`/play/${username}`}>{name?.toUpperCase()}</a></button>
+        </div>
         </div>
     )
 }
