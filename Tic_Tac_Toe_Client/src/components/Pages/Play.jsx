@@ -39,7 +39,7 @@ function Play () {
   const socket = useMemo(
     () =>
       io('http://localhost:4000', {
-        withCredentials: true
+        withCredentials: false
       }),
     []
   )

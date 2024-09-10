@@ -8,16 +8,16 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server,{
     cors:{
-        origin:["http://localhost:3000","http://localhost:3001","http://localhost:3002","http://localhost:3003"],
-        methods:['GET','POST'],
+        origin:"*",
+        // methods:['GET','POST'],
         credentials:true,
     }
 });
 app.use(cors({
-    origin:["http://localhost:3000","http://localhost:3001","http://localhost:3002","http://localhost:3003"],
-    methods:['GET','POST'],
-    credentials:true,
-    optionsSuccessStatus:200
+    origin:"*",
+    // methods:['GET','POST'],
+    credentials:false,
+    // optionsSuccessStatus:200
 }))
 let curr_room = "";
 const room_data = new Map;
